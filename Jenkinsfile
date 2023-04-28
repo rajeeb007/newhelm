@@ -2,12 +2,6 @@ pipeline {
     agent any
     environment{
         DOCKERHUB_CREDENTIALS = credentials('docker_key')
-        build_number = "${env.BUILD_ID}"
-        AWS_ACCOUNT_ID="170771122394"
-        AWS_DEFAULT_REGION="ap-south-1"
-        IMAGE_REPO_NAME="new"
-        IMAGE_TAG="1.1"
-        REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
     }
     stages{
         stage('git checkout'){
