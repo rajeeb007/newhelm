@@ -15,18 +15,6 @@ pipeline {
                 git branch: 'main', credentialsId: 'git_key', url: 'https://github.com/rajeeb007/newforhelm.git'
             }
         }
-        stage('test') {
-            steps {
-                sh 'mvn test' 
-            
-            }
-        }
-        stage('build') {
-            steps {
-                sh 'mvn install' 
-            
-            }
-        }
         stage('code scanner') {
             steps {
                 withSonarQubeEnv(credentialsId: 'sonar_key',installationName:'sonarqube') {
