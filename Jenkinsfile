@@ -54,7 +54,7 @@ pipeline {
         stage('helmChart tag and  push to ECR') {
             steps {
 
-                  sh "sed -i 's|rajeeb007/for_helm:2.0|rajeeb007/for_helm:${build_number}|g' helmnew/values.yaml"
+                  sh "sed -i 's|rajeeb007/for_helm:latest|rajeeb007/for_helm:${build_number}|g' helmnew/values.yaml"
                  }
         }
         stage('helm package '){
