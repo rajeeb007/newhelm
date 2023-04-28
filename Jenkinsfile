@@ -28,7 +28,7 @@ pipeline {
 
             steps {
 
-                sh 'docker build -t rajeeb007/for_helm:1.${build_number} .'
+                sh 'docker build -t rajeeb007/for_helm:1.5 .'
                
             }
 
@@ -46,7 +46,7 @@ pipeline {
 
             steps {
 
-                sh 'docker push rajeeb007/for_helm:1.${build_number}'
+                sh 'docker push rajeeb007/for_helm:1.5'
 
             }
 
