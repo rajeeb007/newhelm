@@ -53,8 +53,8 @@ pipeline {
         }
         stage('helmChart tag and  push to ECR') {
             steps {
-                def newImageVersion = '1.8'
                 sh "cd helmnew/"
+                def newImageVersion = '1.8'
                 sh "sed -i 's|rajeeb007/for_helm:1.5|rajeeb007/for_helm:${newImageVersion}|g' helmnew/values.yaml"
 
             }
