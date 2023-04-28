@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: rajeeb007/for_helm:1.5
+  repository: rajeeb007/for_helm
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "1.5"
 
 imagePullSecrets: []
 nameOverride: ""
