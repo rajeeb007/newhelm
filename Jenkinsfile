@@ -24,39 +24,39 @@ pipeline {
             
             }
         }
-        stage('docker image building') {
+        // stage('docker image building') {
 
-            steps {
+        //     steps {
 
-                sh 'docker build -t rajeeb007/for_helm:1.${build_number} .'
+        //         sh 'docker build -t rajeeb007/for_helm:1.${build_number} .'
                
-            }
+        //     }
 
-        }
-        stage('Login') {
+        // }
+        // stage('Login') {
 
-            steps {
+        //     steps {
 
-                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+        //         sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 
-            }
+        //     }
 
-        }
-        stage('pushing to docker hub') {
+        // }
+        // stage('pushing to docker hub') {
 
-            steps {
+        //     steps {
 
-                sh 'docker push rajeeb007/for_helm:1.${build_number}'
+        //         sh 'docker push rajeeb007/for_helm:1.${build_number}'
 
-            }
+        //     }
 
-        }
-        stage('helmChart tag and  push to ECR') {
-            steps {
+        // }
+        // stage('helmChart tag and  push to ECR') {
+        //     steps {
 
-                  sh "sed -i 's|rajeeb007/for_helm:latest|rajeeb007/for_helm:${build_number}|g' helmnew/values.yaml"
-                 }
-        }
+        //           sh "sed -i 's|rajeeb007/for_helm:latest|rajeeb007/for_helm:${build_number}|g' helmnew/values.yaml"
+        //          }
+        // }
         stage('helm package '){
             
             steps {
