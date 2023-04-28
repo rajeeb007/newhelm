@@ -55,7 +55,7 @@ pipeline {
             steps {
 
                 
-                sh "sed -i 's|rajeeb007/for_helm:1.5|rajeeb007/for_helm:1.8|g' /home/rajeeb/Desktop/helmnew1/helmnew/helmnew/values.yaml"
+                sh "sed -i 's|rajeeb007/for_helm:1.5|rajeeb007/for_helm:1.8|g' helmnew/values.yaml"
 
             }
         }
