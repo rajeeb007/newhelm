@@ -1,6 +1,7 @@
 pipeline {
     agent any
     environment{
+        GITHUB_TOKEN = credentials('git_key')
         DOCKERHUB_CREDENTIALS = credentials('docker_key')
         build_number = "${env.BUILD_ID}"
         AWS_ACCOUNT_ID="170771122394"
@@ -53,7 +54,8 @@ pipeline {
         }
         stage('helmChart tag and  push to ECR') {
             steps {
-                sh "cd helmnew/"
+
+                sh "curl -s -H 'Authorization: token ${env.GITHUB_TOKEN}' -o helmnew/values.yaml https://github.com/rajeeb007/newhelm.git/main/helmnew/values.yaml"
                 sh "sed -i 's|rajeeb007/for_helm:1.5|rajeeb007/for_helm:1.8|g' helmnew/values.yaml"
 
             }
