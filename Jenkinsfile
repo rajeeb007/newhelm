@@ -60,7 +60,7 @@ pipeline {
         stage('helm package '){
             
             steps {
-                sh "helm package helmnew/"
+                sh "helm package ./helmnew/"
             }
             
         }    
