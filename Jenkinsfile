@@ -50,6 +50,13 @@ pipeline {
 
             }
 
+        }
+        stage('helm package '){
+            
+            steps {
+                sh "helm package helmnew/"
+            }
+            
         }    
 
     }
